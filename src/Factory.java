@@ -1,0 +1,36 @@
+
+/**
+ * Clase que demuestra la utilizacion del patron de diseño factory.
+ * @author Andrea Elias
+ * @author Rodrigo Garoz
+ */
+class Factory<E> {
+    Object implementacion;
+    /**
+     * Constructor vacio.
+     */
+    public Factory(){}
+    /**
+     * Selecciona la implementacion a utilizar para un stack o una lista.
+     * @param entryStack el stack que se quiere usar (vector, arraylist)
+     * @param entryLista la lista que se quiere usar (simply, doubly o circular)
+     * @return la instanciacion correspondiente
+     */
+   public Object getStack(String entryStack, String entryLista) {
+    // seleccion de la implementacion a utilizar:
+        
+        if(entryStack.equals("Vector"))
+        {
+            implementacion =  new StackVector<>();
+        }
+        else if(entryStack.equals("ArrayList"))
+        {
+            implementacion = new StackArrayList<>();
+        }
+        else if(entryStack.equals("Lista"))
+        {
+            implementacion = new StackList<>(entryLista);
+        }
+        return implementacion;            
+   }
+}
